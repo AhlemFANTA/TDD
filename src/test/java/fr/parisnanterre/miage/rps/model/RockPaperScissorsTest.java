@@ -1,21 +1,18 @@
 package fr.parisnanterre.miage.rps.model;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
 
 public class RockPaperScissorsTest {
     RockPaperScissors rps;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
         rps = new RockPaperScissors();
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         rps = null;
     }
@@ -24,6 +21,5 @@ public class RockPaperScissorsTest {
     public void testWinPlay(String p1, String p2){
         assertEquals(rps.play(Play.valueOf(p1), Play.valueOf(p2)), Result.WIN);
     }
-
 
 }
