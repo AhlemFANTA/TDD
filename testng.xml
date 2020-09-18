@@ -5,12 +5,9 @@
     <parameter name ="papier " value ="PAPER" />
     <parameter name =" pierre " value ="ROCK" />
     <test name =" testWinPlay " >
-        <classes >
+        <classes>
             <class name ="fr/parisnanterre/miage/rps/model.TestRockPapersScissors " >
-                <methods >
-                    <include name =" testWinPlay " ></ include >
-                </ methods >
-            </ class >
-        </ classes >
-    </ test >
-</suite>
+            </class>
+        </classes>
+    </test><!-- Test -->
+</suite><!-- Suite -->
