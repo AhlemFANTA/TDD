@@ -54,44 +54,44 @@ public class RockPaperScissorsTest {
         player1 = player2 = player3 = player4 = null;
     }
 
-    @Test
-    public void testPlayerWin() {
-        assertEquals(rps.play(player1, player2), Result.WIN);
+    @Test(dataProvider = "getWinData")
+    public void testWinPlay(Play play1, Play play2) {
+        assertEquals(rps.play(play1, play2), Result.WIN);
+        assertNotEquals(rps.play(play1, play2), Result.TIE);
+        assertNotEquals(rps.play(play1, play2), Result.LOST);
+    }
+
+    @Test(dataProvider = "getTieData")
+    public void testTiePlay(Play play1, Play play2) {
+        assertEquals(rps.play(play1, play2), Result.TIE);
+        assertNotEquals(rps.play(play1, play2), Result.WIN);
+        assertNotEquals(rps.play(play1, play2), Result.LOST);
+    }
+
+    @Test(dataProvider = "getLostData")
+    public void testLostPlay(Play play1, Play play2) {
+        assertEquals(rps.play(play1, play2), Result.LOST);
+        assertNotEquals(rps.play(play1, play2), Result.TIE);
+        assertNotEquals(rps.play(play1, play2), Result.WIN);
     }
 
     @Test
-    public void testPlayerTie() {
-        assertEquals(rps.play(player1, player3), Result.TIE);
+    public void testWinPlay() {
+        assertEquals(rps.round(player1, player2), Result.WIN);
     }
 
     @Test
-    public void testPlayerLoose() {
-        assertEquals(rps.play(player1, player4), Result.LOST);
+    public void testTiePlay() {
+        assertEquals(rps.round(player1, player3), Result.TIE);
     }
 
-    @Test(dataProvider = "getDataPlayWin")
-    public void testWinPlay(Play pe1, Play pe2) {
-        assertEquals(rps.play(pe1, pe2), Result.WIN);
-        assertNotEquals(rps.play(pe1, pe2), Result.TIE);
-        assertNotEquals(rps.play(pe1, pe2), Result.LOST);
-    }
-
-    @Test(dataProvider = "getDataPlayTie")
-    public void testTiePlay(Play pe1, Play pe2) {
-        assertEquals(rps.play(pe1, pe2), Result.TIE);
-        assertNotEquals(rps.play(pe1, pe2), Result.WIN);
-        assertNotEquals(rps.play(pe1, pe2), Result.LOST);
-    }
-
-    @Test(dataProvider = "getDataPlayLoose")
-    public void testLoosePlay(Play pe1, Play pe2) {
-        assertEquals(rps.play(pe1, pe2), Result.LOST);
-        assertNotEquals(rps.play(pe1, pe2), Result.TIE);
-        assertNotEquals(rps.play(pe1, pe2), Result.WIN);
+    @Test
+    public void testLostPlay() {
+        assertEquals(rps.round(player1, player4), Result.LOST);
     }
 
     @DataProvider
-    public Object[][] getDataPlayWin() {
+    public Object[][] getWinData() {
         return new Object[][]{
                 {Play.PAPER, Play.ROCK},
                 {Play.ROCK, Play.SCISSORS},
@@ -100,7 +100,7 @@ public class RockPaperScissorsTest {
     }
 
     @DataProvider
-    public Object[][] getDataPlayTie() {
+    public Object[][] getTieData() {
         return new Object[][]{
                 {Play.PAPER, Play.PAPER},
                 {Play.ROCK, Play.ROCK},
@@ -109,7 +109,7 @@ public class RockPaperScissorsTest {
     }
 
     @DataProvider
-    public Object[][] getDataPlayLoose() {
+    public Object[][] getLostData() {
         return new Object[][]{
                 {Play.PAPER, Play.SCISSORS},
                 {Play.ROCK, Play.PAPER},

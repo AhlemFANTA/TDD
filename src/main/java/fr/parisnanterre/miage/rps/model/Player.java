@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Player {
     private final String name;
-    private int score;
     private List<Play> pass = new LinkedList<>();
+    private int score;
+    private static final int NB_PASS = 20;
     private int passPointer = 0;
-    private static final int NB_PASS = 7;
 
     public Player(String name, List<Play> pass) {
         this.name = name;
-        this.score = 0;
         this.pass = pass;
+        this.score = 0;
     }
 
     public Player(String name) {
@@ -35,7 +35,7 @@ public class Player {
         this.score = score;
     }
 
-    public Play getNextPass() {
+    public Play getNextMove() {
         try {
             return this.pass.get(++this.passPointer);
         } catch (Exception e) {

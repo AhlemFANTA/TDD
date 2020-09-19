@@ -2,7 +2,7 @@ package fr.parisnanterre.miage.rps.model;
 import java.util.List;
 import java.util.Random;
 
-// les 3 possibilités
+// les 3 possibilités du jeu
 public enum Play {
     ROCK,PAPER,SCISSORS;
 
