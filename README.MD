@@ -1,3 +1,5 @@
+##  Context
+
 Module : Méthodes et outils du developpement logiciel
 
 Chapitre : Tests & Qualité du code
@@ -6,7 +8,7 @@ TD : Pièrre-Papier-Ciseaux
 
 Objectif : Intro au Test Driven Development (TDD) avec Java/Gradle/TestNG/JaCoCo.
 
-## III - Captures
+##  Captures
 
 - ![coverage1](public/uploads/coverage_1.png)
 
