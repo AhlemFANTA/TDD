@@ -8,11 +8,11 @@ Objectif : Intro au Test Driven Development (TDD) avec Java/Gradle/TestNG/JaCoCo
 
 ## III - Captures
 
-- !(public/uploads/coverage1.png)
+- ![coverage1](public/uploads/coverage 1.png)
 
-- !(public/uploads/coverage2.png)
+- ![coverage2](public/uploads/coverage 2.png)
 
-- !(public/uploads/coverage3.png)
+- ![coverage3](public/uploads/coverage 3.png)
 
-- !(public/uploads/JaCoCoReport.png)
+- ![Coverage Report](public/uploads/JaCoCoReport.png)
 
