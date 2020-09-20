@@ -1,13 +1,11 @@
 package fr.parisnanterre.miage.rps.model;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class Player {
     private final String name;
-    private List<Play> pass = new LinkedList<>();
+    private final List<Play> pass ;
     private int score;
-    private static final int NB_PASS = 20;
     private int passPointer = 0;
 
     public Player(String name, List<Play> pass) {
@@ -15,13 +13,10 @@ public class Player {
         this.pass = pass;
         this.score = 0;
     }
-
+/*
     public Player(String name) {
-        this.name = name;
-        this.score = 0;
-        for (int i = 0; i < NB_PASS; i++)
-            this.pass.add(Play.randomPlay());
-    }
+        this(name, List.of(Play.randomPlay()));
+    }*/
 
     public String getName() {
         return name;
@@ -36,12 +31,12 @@ public class Player {
     }
 
     public Play getNextMove() {
-        try {
-            return this.pass.get(++this.passPointer);
-        } catch (Exception e) {
-            return null;
-        }
-    }
 
+        if (passPointer< pass.size()){
+            Play nextPass = this.pass.get(passPointer);
+            ++passPointer;
+            return nextPass;
+        } else return null;
+    }
 
 }
